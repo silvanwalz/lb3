@@ -231,7 +231,7 @@ K2
 
 ## Persönlicher Wissensstand
 
-Ich habe noch keinerlei erfahrung über Container und Microservices.
+Ich habe noch keinerlei Erfahrung über Container und Microservices.
 
 K3
 ======
