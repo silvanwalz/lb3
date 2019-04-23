@@ -11,6 +11,11 @@ Die nachstehende Dokumentation zeigt alle Schritte auf, die ich während der LB3
   - [SSH-Key](#ssh-key)
 - [K2](#k2)
   - [GitHub Account](#github-account)
+  - [Persönlicher Wissensstand](#persönlicher-wissensstand)
+- [K3](#k3)
+- [K4](#k4)
+- [K5](#k5)
+- [K6](#k6)
 ___
 
 K1
@@ -227,3 +232,23 @@ K2
 ## Persönlicher Wissensstand
 
 Ich habe noch keinerlei erfahrung über Container und Microservices.
+
+K3
+======
+
+test
+
+K4
+======
+
+test
+
+K5
+======
+
+test
+
+K6
+======
+
+test
