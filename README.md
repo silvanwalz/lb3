@@ -342,7 +342,7 @@ Um zu testen, ob der Webserver und seine Volumes funktionieren, habe ich im Brow
 **Der Test war erfolgreich!**
 
 ### phpmyadmin
-Um zu testen, ob phpmyadmin Konfiguriert wurde, habe ich "localhost:8080" im Browser eingegeben und versucht mich mit meinem gesetzen Passwort einzuloggen.
+Um zu testen, ob phpmyadmin konfiguriert wurde, habe ich "localhost:8080" im Browser eingegeben und versucht mich mit meinem gesetzen Passwort einzuloggen.
 
 **Der Test war erfolgreich!**
 
