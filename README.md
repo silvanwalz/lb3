@@ -1,8 +1,10 @@
-M300 - LB3 Dokumentation Silvan Walz
+M300 - LB3 Dokumentation Silvan Walz test
 ===
 Die nachstehende Dokumentation zeigt alle Schritte auf, die ich während der LB3 gemacht habe.
 
 ## Inhaltsverzeichnis
+- [M300 - LB3 Dokumentation Silvan Walz test](#m300---lb3-dokumentation-silvan-walz-test)
+  - [Inhaltsverzeichnis](#inhaltsverzeichnis)
 - [K1](#k1)
   - [VirtualBox](#virtualbox)
   - [Vagrant](#vagrant)
@@ -11,7 +13,7 @@ Die nachstehende Dokumentation zeigt alle Schritte auf, die ich während der LB3
   - [SSH-Key](#ssh-key)
 - [K2](#k2)
   - [GitHub Account](#github-account)
-  - [Persönlicher Wissensstand](#persönlicher-wissensstand)
+  - [Persönlicher Wissensstand](#pers%C3%B6nlicher-wissensstand)
 - [K3](#k3)
 - [K4](#k4)
 - [K5](#k5)
