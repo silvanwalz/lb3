@@ -17,7 +17,8 @@ Die nachstehende Dokumentation zeigt alle Schritte auf, die ich während der LB3
   - [Wichtige Lernschritte](#wichtige-lernschritte)
 - [K3](#k3)
   - [Aufbau der Dockerumgebung](#aufbau-der-dockerumgebung)
-  - [Testfälle](#testf%C3%A4lle)
+  - [Wichtige Docker Befehle](#wichtige-docker-befehle)
+  - [Testen](#testen)
     - [Webserver](#webserver)
     - [phpmyadmin](#phpmyadmin)
 - [K4](#k4)
@@ -316,7 +317,23 @@ services:
 
 ```
 
-## Testfälle
+## Wichtige Docker Befehle
+```Shell
+docker build -t name .          # Create image using this directory's Dockerfile
+docker run -p 4000:80 name                 # "name" starten mit Port 4000 als 80
+docker run -d -p 4000:80 name                 # das Gleiche bloss im Hintergrund
+docker container ls                             # List aller Laufenden Container
+docker container ls -a                                   # Liste aller Container
+docker container stop <hash>                    # Gracefully stop des Containers
+docker container kill <hash>                     # Force shutdown des Containers
+docker container rm <hash>                             # einen Container löschen
+docker container rm $(docker container ls -a -q)        # alle Container löschen
+docker image ls -a                      # Liste alles Images auf dieser Maschine
+docker image rm <image id>                                   # ein Image löschen
+docker image rm $(docker image ls -a -q)                   # Alle Images löschen
+```
+
+## Testen
 
 ### Webserver
 Um zu testen, ob der Webserver und seine Volumes funktionieren, habe ich im Browser "localhost" eingegeben und zuerst mal geschaut, ob meine Seite angezeigt wird. Um die Volumes zu testen, habe ich das Index-File angepasst und geschaut, ob sich die Seite geändert hat. 
