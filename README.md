@@ -374,6 +374,10 @@ Zur genaueren Überwachung habe ich den PRTG Network Monitor ausgewählt. Damit 
 
 Nachdem die Software heruntergeladen wurde, kann man darauf zugreifen, indem man im Browser **127.0.0.1** eintippt. Oder über die Destop-App.
 
+Ich habe dazu noch zwei Trigger für Benachrichtigungen erstellt:
+* Wenn sich der Sensor ändert, führe E-Mail an alle Mitglieder der Gruppe PRTG Benutzergruppe schicken aus.
+* Wenn der Sensor für mindestens 60 Sekunden im Zustand Fehler ist, führe E-Mail und Push-Benachrichtigung an Administrator aus.
+
 K5
 ======
 
