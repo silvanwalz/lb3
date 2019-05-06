@@ -22,7 +22,10 @@ Die nachstehende Dokumentation zeigt alle Schritte auf, die ich während der LB3
     - [Webserver](#webserver)
     - [phpmyadmin](#phpmyadmin)
 - [K4](#k4)
-  - [Überwachung](#%C3%BCberwachung)
+  - [3 Sicherheitsaspekte](#3-sicherheitsaspekte)
+  - [Image Poinoning](#image-poinoning)
+  - [Memory Limmit](#memory-limmit)
+    - [Überwachung](#%C3%BCberwachung)
 - [K5](#k5)
   - [Vergleich Vorwissen - Wissenszuwachs](#vergleich-vorwissen---wissenszuwachs)
   - [Reflexion](#reflexion)
@@ -348,8 +351,18 @@ Um zu testen, ob phpmyadmin konfiguriert wurde, habe ich "localhost:8080" im Bro
 
 K4
 ======
+## 3 Sicherheitsaspekte
+Ich habe folgende drei Sicherheitsaspekte beachtet.
+## Image Poinoning
+Als erster Aspekt, habe ich nur Images von der offiziellen Seite https://hub.docker.com/ genommen.
 
-## Überwachung
+## Memory Limmit
+Ich habe  im Compose File ein Memory Limit gesetzt, damit der Container nicht zu viel Memory braucht.
+```Shell
+mem_limit: 1024m
+```
+
+### Überwachung
 Für die grundsätzliche Überwachung der drei Container werden in der Shell die Aktivitäten angezeigt. 
 
 Zur genaueren Überwachung habe ich den PRTG Network Monitor ausgewählt. Damit lässt sich der Container überwachen. 
