@@ -23,8 +23,8 @@ Die nachstehende Dokumentation zeigt alle Schritte auf, die ich während der LB3
     - [phpmyadmin](#phpmyadmin)
 - [K4](#k4)
   - [3 Sicherheitsaspekte](#3-sicherheitsaspekte)
-  - [Image Poinoning](#image-poinoning)
-  - [Memory Limmit](#memory-limmit)
+    - [Image Poinoning](#image-poinoning)
+    - [Memory Limmit](#memory-limmit)
     - [Überwachung](#%C3%BCberwachung)
 - [K5](#k5)
   - [Vergleich Vorwissen - Wissenszuwachs](#vergleich-vorwissen---wissenszuwachs)
@@ -353,10 +353,10 @@ K4
 ======
 ## 3 Sicherheitsaspekte
 Ich habe folgende drei Sicherheitsaspekte beachtet.
-## Image Poinoning
+### Image Poinoning
 Als erster Aspekt, habe ich nur Images von der offiziellen Seite https://hub.docker.com/ genommen.
 
-## Memory Limmit
+### Memory Limmit
 Ich habe  im Compose File ein Memory Limit gesetzt, damit der Container nicht zu viel Memory braucht.
 ```Shell
 mem_limit: 1024m
