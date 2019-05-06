@@ -1,9 +1,9 @@
-M300 - LB3 Dokumentation Silvan Walz test
+M300 - LB3 Dokumentation Silvan Walz 
 ===
 Die nachstehende Dokumentation zeigt alle Schritte auf, die ich während der LB3 gemacht habe.
 
 ## Inhaltsverzeichnis
-- [M300 - LB3 Dokumentation Silvan Walz test](#m300---lb3-dokumentation-silvan-walz-test)
+- [M300 - LB3 Dokumentation Silvan Walz](#m300---lb3-dokumentation-silvan-walz)
   - [Inhaltsverzeichnis](#inhaltsverzeichnis)
 - [K1](#k1)
   - [VirtualBox](#virtualbox)
@@ -14,14 +14,21 @@ Die nachstehende Dokumentation zeigt alle Schritte auf, die ich während der LB3
 - [K2](#k2)
   - [GitHub Account](#github-account)
   - [Persönlicher Wissensstand](#pers%C3%B6nlicher-wissensstand)
+  - [Wichtige Lernschritte](#wichtige-lernschritte)
 - [K3](#k3)
+  - [Aufbau der Dockerumgebung](#aufbau-der-dockerumgebung)
+  - [Testfälle](#testf%C3%A4lle)
+    - [Webserver](#webserver)
+    - [phpmyadmin](#phpmyadmin)
 - [K4](#k4)
 - [K5](#k5)
-- [K6](#k6)
+  - [Vergleich Vorwissen - Wissenszuwachs](#vergleich-vorwissen---wissenszuwachs)
+  - [Reflexion](#reflexion)
 ___
 
 K1
 ======
+Die Dokumentation zu K1 konnte ich vollumfänglich von Lb2 übernehmen, da es die gleichen Kriterien sind.
 
 > [⇧ **Nach oben**](#inhaltsverzeichnis)
  
@@ -222,6 +229,8 @@ vagrant ssh
 ___
 K2
 ======
+Auch die Dokumentation von K2 konnte hauptsächlich von LB2 übernommen werden. einzig der Wissenstand war ein anderer.
+
 ## GitHub Account
 > [⇧ **Nach oben**](#inhaltsverzeichnis)
 
@@ -233,24 +242,111 @@ K2
 
 ## Persönlicher Wissensstand
 
-Ich habe noch keinerlei Erfahrung über Container und Microservices.
+Ich habe noch keinerlei Erfahrung mit Docker und Container. Ich habe schon von Docker gehört, habe aber noch nie damit gearbeitet und bin auch im Geschäft noch nie darauf gestossen. 
+
+## Wichtige Lernschritte
+
+Die wichtigsten Lernschritte für mich waren zuerst zu wissen, wie Container funktionieren und das kennenlernen der Befehle. 
 
 K3
 ======
 
-test
+## Aufbau der Dockerumgebung
+
+**Zuerst habe ich Docker heruntergeladen:**
+1. Auf [docs.docker.com](https://docs.docker.com/docker-for-windows/install/) gehen
+2.  Auf **Download from Docker hub** klicken
+3. Die lokale Installation erfolgt dann GUI-basiert.
+
+Ich habe in meinem erstellten Ordner ein Dockerfile erstellt und folgendes eingetragen: 
+```Shell
+FROM php:7.1-apache
+
+RUN docker-php-ext-install mysqli
+```
+
+Danach habe ich ein Compose File erstellt:
+```Shell
+version: '2.2'
+
+services:
+
+# Hier werden Webserver und php Config definiert
+  php:
+    build: php
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: on-failure
+# Hier wird angegeben, wo das Indexfile für den Webserver ist. Angabe der Volumes wird das Index-File fortlaufend synchronisiert.
+    volumes:
+      - ./php/www:/var/www/html
+    cpus: 1
+    mem_limit: 1024m
+
+# Hier wird der grafische Zugang zum MySQL Server konfiguriert.
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+        - db:db
+# Hier wird angegeben, dass phpmyadmin über Port 8080 lauft, weil nicht zwei Services auf den gleichen Port laufen können.
+    ports:
+        - 8080:80
+    restart: on-failure
+# Hier wird das Passwort für den Root-User auf phpmyadmin gesetzt.
+    environment:
+        MYSQL_ROOT_PASSWORD: test123
+    cpus: 1
+    mem_limit: 1024m
+
+# Hier wird die MySQL Datenbank erstellt.
+  db:
+    image: mysql:5.7
+    ports:
+     - "3306:3306"
+    volumes:
+     - /var/lib/mysql
+    restart: on-failure
+# Hier wird das Passwort für den Root-Zugang definiert.
+    environment:
+     - MYSQL_ROOT_PASSWORD=test123
+     - MYSQL_DATABASE=database
+    cpus: 1
+    mem_limit: 1024m
+
+```
+
+## Testfälle
+
+### Webserver
+Um zu testen, ob der Webserver und seine Volumes funktionieren, habe ich im Browser "localhost" eingegeben und zuerst mal geschaut, ob meine Seite angezeigt wird. Um die Volumes zu testen, habe ich das Index-File angepasst und geschaut, ob sich die Seite geändert hat. 
+
+**Der Test war erfolgreich!**
+
+### phpmyadmin
+Um zu testen, ob phpmyadmin Konfiguriert wurde, habe ich "localhost:8080" im Browser eingegeben und versucht mich mit meinem gesetzen Passwort einzuloggen.
+
+**Der Test war erfolgreich!**
 
 K4
 ======
 
-test
+Für die grundsätzliche Überwachung der drei Container werden in der Shell die Aktivitäten angezeigt. 
+
+Zur genaueren Überwachung habe ich den PRTG Network Monitor ausgewählt. Damit lässt sich der Container überwachen. 
+
+**Ich habe folgendermassen PRTG heruntergeladen:**
+1. Auf [paessler.com](https://www.de.paessler.com/prtg) gehen
+2. Auf **Kostenlose Download** klicken
+3. Die lokale Installation erfolgt dann GUI-basiert.
+
+Nachdem die Software heruntergeladen wurde, kann man darauf zugreifen, indem man im Browser **127.0.0.1** eintippt. Oder über die Destop-App.
 
 K5
 ======
 
-test
+## Vergleich Vorwissen - Wissenszuwachs
+Der Wissenszuwachs war enorm, da ich zuvor nichts über Docker und seine Befehle gewusst habe. Daher war alles zuvor dokumentierte neu für mich.
 
-K6
-======
-
-test
+## Reflexion
+Die LB3 war zu Beginn sehr anspruchsvoll, da ich nicht genau wusste was zu tun ist. Mit der Zeit habe ich aber immer mehr hereingefunden. Zuerst musste ich die Befehle kennenlernen und konnte dann mit den Files beginnen. Die Dokumentation auf GitHub hat mir dabei sehr geholfen. Auch dieses Mal habe ich viel Zeit in die Dokumentation gebraucht. 
