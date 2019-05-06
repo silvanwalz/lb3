@@ -22,6 +22,7 @@ Die nachstehende Dokumentation zeigt alle Schritte auf, die ich während der LB3
     - [Webserver](#webserver)
     - [phpmyadmin](#phpmyadmin)
 - [K4](#k4)
+  - [Überwachung](#%C3%BCberwachung)
 - [K5](#k5)
   - [Vergleich Vorwissen - Wissenszuwachs](#vergleich-vorwissen---wissenszuwachs)
   - [Reflexion](#reflexion)
@@ -319,8 +320,8 @@ services:
 
 ## Wichtige Docker Befehle
 ```Shell
-docker build -t name .          # Create image using this directory's Dockerfile
-docker run -p 4000:80 name                 # "name" starten mit Port 4000 als 80
+docker build -t name . # Image mithilfe des Dockerfiles im Verzeichnis erstellen
+docker run -p 4000:80 name           # "name"-Image starten mit Port 4000 als 80
 docker run -d -p 4000:80 name                 # das Gleiche bloss im Hintergrund
 docker container ls                             # List aller Laufenden Container
 docker container ls -a                                   # Liste aller Container
@@ -348,6 +349,7 @@ Um zu testen, ob phpmyadmin Konfiguriert wurde, habe ich "localhost:8080" im Bro
 K4
 ======
 
+## Überwachung
 Für die grundsätzliche Überwachung der drei Container werden in der Shell die Aktivitäten angezeigt. 
 
 Zur genaueren Überwachung habe ich den PRTG Network Monitor ausgewählt. Damit lässt sich der Container überwachen. 
