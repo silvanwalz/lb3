@@ -24,7 +24,7 @@ Die nachstehende Dokumentation zeigt alle Schritte auf, die ich während der LB3
 - [K4](#k4)
   - [3 Sicherheitsaspekte](#3-sicherheitsaspekte)
     - [Image Poinoning](#image-poinoning)
-    - [Memory Limmit](#memory-limmit)
+    - [Memory Limit](#memory-limit)
     - [Überwachung](#%C3%BCberwachung)
 - [K5](#k5)
   - [Vergleich Vorwissen - Wissenszuwachs](#vergleich-vorwissen---wissenszuwachs)
@@ -338,7 +338,6 @@ docker image rm $(docker image ls -a -q)                   # Alle Images lösche
 ```
 
 ## Testen
-
 ### Webserver
 Um zu testen, ob der Webserver und seine Volumes funktionieren, habe ich im Browser "localhost" eingegeben und zuerst mal geschaut, ob meine Seite angezeigt wird. Um die Volumes zu testen, habe ich das Index-File angepasst und geschaut, ob sich die Seite geändert hat. 
 
@@ -356,7 +355,7 @@ Ich habe folgende drei Sicherheitsaspekte beachtet.
 ### Image Poinoning
 Als erster Aspekt, habe ich nur Images von der offiziellen Seite https://hub.docker.com/ genommen.
 
-### Memory Limmit
+### Memory Limit
 Ich habe  im Compose File ein Memory Limit gesetzt, damit der Container nicht zu viel Memory braucht.
 ```Shell
 mem_limit: 1024m
